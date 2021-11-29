@@ -7,6 +7,7 @@ const routes: Routes = [
     .then(f => f.AuthModule)}
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

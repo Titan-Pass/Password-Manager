@@ -1,19 +1,16 @@
 <h1>Welcome to Titan Pass</h1>
 <form [formGroup]="loginForm" (ngSubmit)="login()">
-
-  <label for="email">Username: </label>
+  <label for="email"style="margin: 5px">Username: </label>
   <input id="email" type="email" formControlName="email">
 
-  <label for="password">Password: </label>
+  <label for="password"style="margin: 5px">Password: </label>
   <input id="password" type="password" formControlName="password">
   <div *ngIf="password && password.invalid && (password.dirty || password.touched)"
        class="alert alert-danger">
-
     <div *ngIf="password.errors?.required">
       Password is required.
     </div>
   </div>
-
   <button type="submit"
-          [disabled]="!loginForm.valid">Login</button>
+          [disabled]="!loginForm.valid"style="margin: 5px">Login</button>
 </form>
