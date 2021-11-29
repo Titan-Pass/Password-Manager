@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginForm.get('password')
   }
-  get username() {
-    return this.loginForm.get('username');
+  get email() {
+    return this.loginForm.get('email');
   }
 
   login(){
