@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private _http: HttpClient) { }
 
   login(loginDto: LoginDto): Observable<TokenDto>{
-    return this._http.post<TokenDto>(environment.api + '/api/auth/login', loginDto)
+    return this._http.post<TokenDto>(environment.api + 'api/auth/login', loginDto)
       .pipe(
         tap(token => {
           if(token && token.jwt) {

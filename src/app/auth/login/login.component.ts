@@ -10,7 +10,7 @@ import {LoginDto} from "../shared/login.dto";
 })
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
-    username: new FormControl('',
+    email: new FormControl('',
       [Validators.required, Validators.minLength(3)]),
     password: new FormControl('', Validators.required),
   });
