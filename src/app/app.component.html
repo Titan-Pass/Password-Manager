@@ -1,3 +1,6 @@
+
+<meta charset="utf-8">
+
 <a routerLink="auth/login" style="margin: 5px" *ngIf="!jwt else logoutTemp">Login</a>
 <ng-template #logoutTemp>
   <a [routerLink]="[]" (click)="logout()" style="margin: 5px">Logout</a>
@@ -6,3 +9,5 @@
 <a routerLink="accounts" class="accountBtn" style="margin: 5px">Accounts</a>
 <a routerLink="join"class="joinBtn" style="margin: 5px">Join</a>
 <router-outlet></router-outlet>
+
+
