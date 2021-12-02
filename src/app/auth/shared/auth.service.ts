@@ -34,10 +34,11 @@ export class AuthService {
 
   }
 
-  logout() {
+  logout():Observable<boolean> {
     localStorage.removeItem(jwtToken)
     this.isLoggedIn$.next(null);
     return of(true).pipe(take(1));
+    return of(true);
   }
 
 
