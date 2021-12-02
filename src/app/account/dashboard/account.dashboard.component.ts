@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AccountService} from "../shared/account.service";
+import {Observable} from "rxjs";
+import {AccountList} from "../shared/account-list.model";
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account.dashboard.component.scss']
 })
 export class AccountDashboardComponent implements OnInit {
+  $accounts: Observable<AccountList> | undefined;
 
-  constructor() { }
+  constructor(private _accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.getAccounts()
   }
 
+  getAccounts(): void {
+    this.$accounts = this._accountService.getAccounts();
+  }
 }
