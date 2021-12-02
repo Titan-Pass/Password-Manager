@@ -1,1 +1,6 @@
-<p>dashboard works!</p>
+<h1>Accounts:</h1>
+<ul *ngIf="$accounts | async as accountsList">
+  <li *ngFor="let account of accountsList.list">
+    <span class="card-text">Id: {{account.id}} Name: {{account.name}} Email: {{account.email}} Group: {{account.group.name}} </span>
+  </li>
+</ul>
