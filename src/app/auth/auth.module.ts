@@ -24,4 +24,5 @@ import { UserComponent } from './create/user/user.component';
         FormsModule
     ]
 })
+
 export class AuthModule { }

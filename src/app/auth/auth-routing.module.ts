@@ -1,6 +1,3 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from "./login/login.component";
 import {GroupsComponent} from "./create/groups/groups.component";
 import {AccountComponent} from "./create/account/account.component";
 import {UserComponent} from "./create/user/user.component";

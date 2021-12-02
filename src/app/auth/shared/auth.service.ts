@@ -38,4 +38,8 @@ export class AuthService {
     localStorage.removeItem(jwtToken)
     this.isLoggedIn$.next(null);
   }
+
+  public forgotPassword = (route: string, body: forgotPasswordDto) => {
+    return this._http.post(this.createCompleteRoute(route, this._envUrl.urlAddress), body);
+  }
 }
