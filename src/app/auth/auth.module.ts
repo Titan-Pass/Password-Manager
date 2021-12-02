@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GroupsComponent } from './create/groups/groups.component';
-import { AccountComponent } from './create/account/account.component';
+import { AccountComponent } from '../account/account.component';
 import { UserComponent } from './create/user/user.component';
 
 
