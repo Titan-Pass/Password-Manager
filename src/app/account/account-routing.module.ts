@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'create', component: CreateAccountComponent}
 ];
 
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
