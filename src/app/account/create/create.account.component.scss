@@ -26,15 +26,6 @@
   font-size: 25px;
 }
 
-.NewButton{
-  Position: center;
-  width: 108px;
-  height: 40px;
-  background: #33CC33;
-  opacity: 0.7;
-  border-radius: 20px;
-}
-
 .AddButton{
   width: 150px;
   height: 40px;
@@ -58,8 +49,6 @@
   align-self: center;
   margin-top: 20px;
 
-
-
   text-align: center;
   font-size: 20px;
   font-weight: bold;
@@ -71,10 +60,11 @@
 
   width: 60px;
   height: 20px;
-  background: #A38D65;
+  background: #006400;
   border-radius: 20px;
   align-self: center;
   margin-top: -20px;
+  margin-left: 200+15px;
   margin-bottom: 5px;
 
   text-align: center;
@@ -84,6 +74,27 @@
   color: #FFFFFF;
 }
 
+
+.NewButton{
+
+  width: 60px;
+  height: 20px;
+  background: #006400;
+  border-radius: 20px;
+  align-self: center;
+  margin-top: -20px;
+  margin-left: 220px;
+  margin-bottom: 5px;
+
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #FFFFFF;
+}
+
+
+
 .LabelDesign{
   margin-top: 30px;
   font-family: Roboto, sans-serif;
@@ -92,8 +103,6 @@
   font-size: 20px;
 
 }
-
-
 
 .WhiteContainer{
   flex-direction: column;
