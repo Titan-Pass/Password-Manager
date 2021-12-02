@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 
-<a routerLink="auth/login" style="margin: 5px" *ngIf="!jwt else logoutTemp">Login</a>
+<a routerLink="auth/login" class="loginbtn"style="margin: 5px" *ngIf="!jwt else logoutTemp">Login</a>
 <ng-template #logoutTemp>
   <a [routerLink]="[]" (click)="logout()" style="margin: 5px">Logout</a>
 </ng-template>
