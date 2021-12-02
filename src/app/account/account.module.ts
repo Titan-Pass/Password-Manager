@@ -4,10 +4,12 @@ import { AccountRoutingModule } from './account-routing.module';
 import {AccountDashboardComponent} from "./dashboard/account.dashboard.component";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import {CreateAccountComponent} from "./create/create.account.component";
 
 @NgModule({
   declarations: [
-    AccountDashboardComponent
+    AccountDashboardComponent,
+    CreateAccountComponent
   ],
 
   imports: [
