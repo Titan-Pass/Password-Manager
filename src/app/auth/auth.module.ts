@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GroupsComponent } from './create/groups/groups.component';
 import { AccountComponent } from './create/account/account.component';
+import { UserComponent } from './create/user/user.component';
 
 
 
@@ -13,7 +14,8 @@ import { AccountComponent } from './create/account/account.component';
   declarations: [
     LoginComponent,
     GroupsComponent,
-    AccountComponent
+    AccountComponent,
+    UserComponent
   ],
     imports: [
         CommonModule,
