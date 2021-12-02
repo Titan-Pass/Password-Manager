@@ -1,4 +1,4 @@
-import {GroupsComponent} from "./create/groups/groups.component";
+import {GroupsComponent} from "../groups/groups.component";
 import {AccountComponent} from "../account/account.component";
 import {UserComponent} from "./create/user/user.component";
 import {RouterModule, Routes} from "@angular/router";
