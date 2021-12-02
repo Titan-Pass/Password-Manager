@@ -12,4 +12,9 @@ export class GroupsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  goBack(){
+    window.history.back();
+  }
+
 }
