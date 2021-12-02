@@ -2,10 +2,15 @@
   margin: 50px auto;
   flex-direction: row;
   justify-content: space-between;
-  align-content: center;
   height: 70+5px;
   width: 360px;
   background: #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  font-weight: bold;
+  font-family: Bungee, sans-serif;
+
 }
 
 
@@ -42,4 +47,16 @@
   font-weight: bold;
   font-size: 20px;
 
+}
+.TitanLabel{
+  font-family: Bungee, sans-serif;
+  font-weight: bold;
+  color: #A38D65;
+  font-size: 80px;
+}
+.PassLabel{
+  font-family: Bungee,sans-serif;
+  font-weight: bold;
+  color: #C23838;
+  font-size: 80px;
 }
