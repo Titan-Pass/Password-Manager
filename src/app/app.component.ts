@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthService} from "./auth/shared/auth.service";
+import {pipe} from "rxjs";
+import {take} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,6 @@ export class AppComponent {
   }
 
   logout() {
-    this._auth.logout();
+    this._auth.logout()
   }
 }
