@@ -15,4 +15,5 @@ export class UserComponent implements OnInit {
   goBack(){
     window.history.back();
   }
+
 }

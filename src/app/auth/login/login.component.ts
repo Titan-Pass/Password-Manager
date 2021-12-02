@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   Create(){
-    
+    this._router.navigateByUrl('auth/create/user')
   }
 
 
