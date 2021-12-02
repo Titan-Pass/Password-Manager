@@ -9,14 +9,14 @@
 <div class="WhiteContainer">
 
   <label for="email" class="LabelDesign">Email:</label>
-  <input type="email" id="email" name="email" class="BoxDesign">
+  <input type="email" id="email" name="email" #email class="BoxDesign">
   <label for="password" class="LabelDesign">Password:</label>
-  <input type="password" id="password" name="password" class="BoxDesign">
+  <input type="password" id="password" name="password" #plainTextPassword class="BoxDesign">
   <label for="repeatPassword" class="LabelDesign">Repeat Password:</label>
   <input type="password" id="repeatPassword" name="repeatPassword" class="BoxDesign">
 
 
-  <button class="CreateButton"  type ="submit">Create</button>
+  <button class="CreateButton" (click)="create(email.value, plainTextPassword.value)" type ="submit">Create</button>
   <button class="BackButton" (click)="goBack()">Back</button>
 
 </div>

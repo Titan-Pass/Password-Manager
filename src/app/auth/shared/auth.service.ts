@@ -5,6 +5,7 @@ import {BehaviorSubject, Observable, of} from "rxjs";
 import {TokenDto} from "./token.dto";
 import {environment} from "../../../environments/environment";
 import {take, tap} from "rxjs/operators";
+import {User} from "./user.model";
 
 const jwtToken = 'jwtToken';
 
@@ -12,6 +13,8 @@ const jwtToken = 'jwtToken';
   providedIn: 'root'
 })
 export class AuthService {
+  private authApi = environment.api + 'api/Auth'
+
   isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
   constructor(private _http: HttpClient) { }
 
@@ -27,6 +30,10 @@ export class AuthService {
           }
         })
       )
+  }
+
+  createUser(user: User): Observable<User> {
+    return this._http.post<User>(this.authApi, user)
   }
 
   getToken(): string | null {
