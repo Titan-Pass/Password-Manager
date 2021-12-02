@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {AuthService} from "../shared/auth.service";
 import {LoginDto} from "../shared/login.dto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder,
-              private _auth: AuthService) {
+              private _auth: AuthService,
+              private _router: Router) {
 
   }
 
@@ -31,8 +33,15 @@ export class LoginComponent implements OnInit {
     const loginDto = this.loginForm.value as LoginDto;
     this._auth.login(loginDto)
       .subscribe(token => {
-        console.log('Token: ', token);
+        if(token && token.jwt){
+          this._router.navigateByUrl('accounts')
+        }
+        //console.log('Token: ', token);
       });
+  }
+
+  Create(){
+    
   }
 
 

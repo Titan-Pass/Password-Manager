@@ -1,18 +1,32 @@
-<h1 class="Titan">Titan</h1>
-<h1 class="Pass">Pass</h1>
+<div class="LogoContainer">
+  <h1 class="TitanLabel">Titan</h1>
+  <h1 class="PassLabel">Pass</h1>
+</div>
 
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <label for="email" class="emailLabel"style="margin: 5px">Email: </label>
-  <input id="email" class="emailInput" type="email" formControlName="email">
 
-  <label for="password" class="passwordLabel"style="margin: 5px">Password: </label>
-  <input id="password" class="passwordInput" type="password" formControlName="password">
+
+
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="WhiteContainer">
+  <label for="email" class="LabelDesign" >Email: </label>
+  <input id="email" type="email" formControlName="email" class="BoxDesign">
+
+  <label for="password" class="LabelDesign" >Password: </label>
+  <input id="password" type="password" formControlName="password" class="BoxDesign">
+
+
   <div *ngIf="password && password.invalid && (password.dirty || password.touched)"
-       class="alert alert-danger">
+       class="PasswordWarning">
     <div *ngIf="password.errors?.required">
       Password is required.
     </div>
   </div>
-  <button class="loginButton" type="submit"
+  <button class="LoginButton" type="submit"
           [disabled]="!loginForm.valid"style="margin: 5px">Login</button>
+
+  <button class="CreateButton" (click)="Create()">Create User</button>
+
+
+
 </form>
+
+
