@@ -1,6 +1,42 @@
-<h1>Accounts:</h1>
+
+
+<div class="HeaderContainer">
+  <div class="HeaderBox">
+    Group
+  </div>
+  <div class="HeaderBox">
+    Website
+  </div>
+  <div class="HeaderBox">
+    Email
+  </div>
+  <div class="HeaderBox">
+    Password
+  </div>
+</div>
+
 <ul *ngIf="$accounts | async as accountsList">
-  <li *ngFor="let account of accountsList.list">
-    <span class="card-text">Id: {{account.id}} Name: {{account.name}} Email: {{account.email}} Group: {{account.group.name}} </span>
-  </li>
+  <div class="MainContainer">
+  <div class="ItemContainer">
+  <tr *ngFor="let account of accountsList.list">
+    <td class="ItemBox">{{account.group.name}}</td>
+  </tr>
+  </div>
+  <div class="ItemContainer">
+    <tr *ngFor="let account of accountsList.list">
+      <td class="ItemBox">{{account.name}}</td>
+    </tr>
+  </div>
+  <div class="ItemContainer">
+    <tr *ngFor="let account of accountsList.list">
+      <td class="ItemBox">{{account.email}}</td>
+    </tr>
+  </div>
+  <div class="ItemContainer">
+    <tr *ngFor="let account of accountsList.list">
+      <td class="ItemBox">{{account.id}}</td>
+    </tr>
+  </div>
+  </div>
 </ul>
+

@@ -11,6 +11,7 @@ import {AccountList} from "../shared/account-list.model";
 export class AccountDashboardComponent implements OnInit {
   $accounts: Observable<AccountList> | undefined;
 
+
   constructor(private _accountService: AccountService) { }
 
   ngOnInit(): void {
@@ -20,4 +21,9 @@ export class AccountDashboardComponent implements OnInit {
   getAccounts(): void {
     this.$accounts = this._accountService.getAccounts();
   }
+
+  sortAccountsByGroupAscending(): void{
+    this.$accounts = this._accountService.getAccounts();
+  }
+
 }
