@@ -5,7 +5,6 @@
   <h1 class="PassLabel">Pass</h1>
 </div>
 
-
 <div class="WhiteContainer">
 
   <label for="email" class="LabelDesign">Email:</label>
@@ -13,10 +12,18 @@
   <label for="password" class="LabelDesign">Password:</label>
   <input type="password" id="password" name="password" #plainTextPassword class="BoxDesign">
   <label for="repeatPassword" class="LabelDesign">Repeat Password:</label>
-  <input type="password" id="repeatPassword" name="repeatPassword" class="BoxDesign">
+  <input type="password" id="repeatPassword" name="repeatPassword" #plainTextRepeatPassword class="BoxDesign">
+
+  <div *ngIf="checkIfPasswordsAreEqual(plainTextPassword.value, plainTextRepeatPassword.value) == false"
+       class="PasswordWarning">
+    <div>
+      Passwords are not equal!
+    </div>
+  </div>
 
 
-  <button class="CreateButton" (click)="create(email.value, plainTextPassword.value)" type ="submit">Create</button>
+  <button class="CreateButton" (click)="createUser(email.value, plainTextPassword.value, plainTextRepeatPassword.value)" type ="submit">Create</button>
   <button class="BackButton" (click)="goBack()">Back</button>
 
 </div>
+
