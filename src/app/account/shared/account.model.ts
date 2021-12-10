@@ -7,6 +7,7 @@ export interface Account {
   email: string;
   encryptedPassword: string;
   masterPassword: string;
+  groupId: number;
   group: Group;
   user: User;
 }
