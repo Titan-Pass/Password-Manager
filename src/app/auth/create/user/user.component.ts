@@ -5,15 +5,20 @@ import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 
-@Component({
+
+
+  @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
 
-  constructor(private _authService: AuthService) {}
 
+
+  constructor(private _authService: AuthService,
+              private fb: FormBuilder,
+              private _router: Router) {}
 
 
 
@@ -24,13 +29,30 @@ export class UserComponent implements OnInit {
   createUser(email: string, plainTextPassword: string, plaintTextRepeatPassword: string){
     if(this.checkIfPasswordsAreEqual(plainTextPassword, plaintTextRepeatPassword)){
       this.create(email, plainTextPassword);
+      this.showPopUpWindow();
     }
 
   }
 
+  showPopUpWindow(){
+    // @ts-ignore
+    document.querySelector('.pop-up_background').style.display = 'flex';
+  }
+  showPaswordWarning(){
+    // @ts-ignore
+    document.querySelector('.PasswordWarning').style.display = 'flex';
+  }
+
 
   checkIfPasswordsAreEqual(plainTextPassword: string, plainTextRepeatPassword: string): boolean{
-    return plainTextPassword == plainTextRepeatPassword;
+    if(plainTextPassword.length >0 && plainTextPassword == plainTextRepeatPassword){
+      return true;
+    }
+
+    else{
+      this.showPaswordWarning()
+      return false;
+    }
   }
 
 
@@ -43,6 +65,10 @@ export class UserComponent implements OnInit {
 
   goBack(){
     window.history.back();
+  }
+
+  continue(){
+    this._router.navigateByUrl('auth/login');
   }
 
 }
