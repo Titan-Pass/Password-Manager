@@ -1,6 +1,5 @@
 
-<div class="WhiteContainer">
-<form>
+<form [formGroup]="accountForm" class="WhiteContainer" (ngSubmit)="update()">
   <label for="group-select" class="LabelDesign">Group:</label>
   <button class="NewButton" type="submit">New</button>
   <select id="group-select" class="DropDownBox" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
@@ -12,17 +11,16 @@
   </select>
 
   <label for="Name" class="LabelDesign">Website:</label>
-  <input type="text" id="Name" #name name="Name" placeholder="Name" class="BoxDesign">
+  <input type="text" id="Name" #name name="Name" formControlName="name" class="BoxDesign">
 
   <label for="Email" class="LabelDesign">Email:</label>
-  <input type="text" id="Email" #email name="Email" placeholder="Email" class="BoxDesign">
+  <input type="text" id="Email" #email name="Email" formControlName="email" class="BoxDesign">
 
   <label for="masterPassword" class="LabelDesign"> Main password:</label>
-  <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign">
+  <input type="password" id="masterPassword" #masterPassword formControlName="masterPassword" name="masterPassword" class="BoxDesign">
 
   <label for="encryptedPassword" class="LabelDesign">Password:</label>
   <button class="GenerateButton" type="submit">Generate</button>
-  <input type="password" id="encryptedPassword" #encryptedPassword name="encryptedPassword" placeholder="**********" class="BoxDesign">
+  <input type="password" id="encryptedPassword" #encryptedPassword formControlName="encryptedPassword" name="encryptedPassword" class="BoxDesign">
 
 </form>
-</div>
