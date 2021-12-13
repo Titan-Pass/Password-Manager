@@ -24,12 +24,25 @@ export class AccountDashboardComponent implements OnInit {
     this.$accounts = this._accountService.getAccounts();
   }
 
+
   sortAccountsByGroupAscending(): void{
     this.$accounts = this._accountService.getAccounts();
   }
 
-  createNewAccount(){
-    this._router.navigateByUrl('accounts/create');
+  createNewGroup(){
+    this._router.navigateByUrl('group/create');
+  }
+
+
+
+  showPopUpWindow(){
+    // @ts-ignore
+    document.querySelector('.pop-up_background').style.display = 'flex';
+  }
+
+  closePopUpWindow(){
+    // @ts-ignore
+    document.querySelector('.pop-up_background').style.display = 'none';
   }
 
 }

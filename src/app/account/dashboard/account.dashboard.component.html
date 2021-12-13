@@ -7,15 +7,36 @@
     <td class="HeaderBox">Password</td>
     <td></td>
   </tr>
-<div class="ContainerAlignment">
+<div class="ContainerMargin">
   <tr *ngFor="let account of accountsList.list" class="ItemContainer">
     <td class="ItemBox">{{account.group.name}}</td>
     <td class="ItemBox">{{account.name}}</td>
     <td class="ItemBox">{{account.email}}</td>
     <td class="ItemBox">{{account.encryptedPassword}}</td>
-    <td><button>Update</button> <button>X</button></td>
+    <td><button>Update</button> <button (click)="showPopUpWindow()">X</button></td>
   </tr>
 </div>
-  <button (click)="createNewAccount()" class="NewGroup">Create new group</button>
+  <button (click)="createNewGroup()" class="NewGroup">Create new group</button>
 </table>
 
+
+
+
+<!-- Pop Up Window if User Wants to Delete account -->
+
+<div class="pop-up_background" id="popUpBackground">
+  <div class="pop-up_container">
+    <label class="pop-up_labelOne">Are you sure you want</label>
+    <label class="pop-up_labelTwo">to delete the client?</label>
+
+
+    <div class="pop-up_accountInformation_Container">
+      <label>Groups</label>
+      <label>Website</label>
+      <label>Email</label>
+    </div>
+
+    <button class="pop-up_button_yes" id="popUpContinueButtonYes"> Yes. </button>
+    <button class="pop-up_button_no" id="popUpContinueButtonNo" (click)="closePopUpWindow()"> No. </button>
+  </div>
+</div>
