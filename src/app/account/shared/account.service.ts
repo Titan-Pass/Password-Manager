@@ -18,6 +18,10 @@ export class AccountService {
     return this._http.get<AccountList>(this.accountsApi);
   }
 
+  getAccount(id: number):Observable<Account> {
+    return this._http.get<Account>(this.accountsApi + '/' + id);
+  }
+
   createAccount(account: Account): Observable<Account> {
     return this._http.post<Account>(this.accountsApi, account);
   }

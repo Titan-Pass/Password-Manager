@@ -1,0 +1,28 @@
+
+<div class="WhiteContainer">
+<form>
+  <label for="group-select" class="LabelDesign">Group:</label>
+  <button class="NewButton" type="submit">New</button>
+  <select id="group-select" class="DropDownBox" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
+    <option value="" selected hidden>Select</option>
+    <option *ngFor="let group of groupsList.list" (select)="group.id" [value]="group.id" > {{group.name}} </option>
+    <button class="NewButton">
+      nice
+    </button>
+  </select>
+
+  <label for="Name" class="LabelDesign">Website:</label>
+  <input type="text" id="Name" #name name="Name" placeholder="Name" class="BoxDesign">
+
+  <label for="Email" class="LabelDesign">Email:</label>
+  <input type="text" id="Email" #email name="Email" placeholder="Email" class="BoxDesign">
+
+  <label for="masterPassword" class="LabelDesign"> Main password:</label>
+  <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign">
+
+  <label for="encryptedPassword" class="LabelDesign">Password:</label>
+  <button class="GenerateButton" type="submit">Generate</button>
+  <input type="password" id="encryptedPassword" #encryptedPassword name="encryptedPassword" placeholder="**********" class="BoxDesign">
+
+</form>
+</div>
