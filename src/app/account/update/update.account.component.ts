@@ -10,7 +10,7 @@ import {GroupService} from "../../groups/shared/group.service";
 @Component({
   selector: 'app-update',
   templateUrl: './update.account.component.html',
-  styleUrls: ['./update..account.component.scss']
+  styleUrls: ['./update.account.component.scss']
 })
 export class UpdateAccountComponent implements OnInit {
   accountForm = new FormGroup({
