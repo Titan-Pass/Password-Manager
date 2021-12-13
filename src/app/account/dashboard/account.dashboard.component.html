@@ -1,58 +1,21 @@
-<div class="HeaderContainer" xmlns="http://www.w3.org/1999/html">
-  <div class="HeaderBox">
-    Group
-  </div>
-  <div class="HeaderBox">
-    Website
-  </div>
-  <div class="HeaderBox">
-    Email
-  </div>
-  <div class="HeaderBox">
-    Password
-  </div>
-</div>
 
-<table *ngIf="$accounts | async as accountsList" >
-  <tr>
-    <td>Group</td>
-    <td>Website</td>
-    <td>Email</td>
-    <td>Password</td>
+<table  class="MainContainer" *ngIf="$accounts | async as accountsList" >
+  <tr class="HeaderContainer">
+    <td class="HeaderBox">Group</td>
+    <td class="HeaderBox">Website</td>
+    <td class="HeaderBox">Email</td>
+    <td class="HeaderBox">Password</td>
     <td></td>
   </tr>
-  <tr *ngFor="let account of accountsList.list">
-    <td >{{account.group.name}}</td>
-    <td >{{account.name}}</td>
-    <td >{{account.email}}</td>
-    <td >{{account.encryptedPassword}}</td>
+<div class="ContainerAlignment">
+  <tr *ngFor="let account of accountsList.list" class="ItemContainer">
+    <td class="ItemBox">{{account.group.name}}</td>
+    <td class="ItemBox">{{account.name}}</td>
+    <td class="ItemBox">{{account.email}}</td>
+    <td class="ItemBox">{{account.encryptedPassword}}</td>
     <td><button>Update</button> <button>X</button></td>
   </tr>
+</div>
+  <button (click)="createNewAccount()" class="NewGroup">Create new group</button>
 </table>
-<!--
-<ul *ngIf="$accounts | async as accountsList">
-  <div class="MainContainer">
-  <div class="ItemContainer">
-  <tr *ngFor="let account of accountsList.list">
-    <td class="ItemBox">{{account.group.name}}</td>
-  </tr>
-  </div>
-  <div class="ItemContainer">
-    <tr *ngFor="let account of accountsList.list">
-      <td class="ItemBox">{{account.name}}</td>
-    </tr>
-  </div>
-  <div class="ItemContainer">
-    <tr *ngFor="let account of accountsList.list">
-      <td class="ItemBox">{{account.email}}</td>
-    </tr>
-  </div>
-  <div class="ItemContainer">
-    <tr *ngFor="let account of accountsList.list">
-      <td class="ItemBox">{{account.encryptedPassword}}</td>
-
-    </tr>
-  </div>
-  </div>
-</ul>-->
 
