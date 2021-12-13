@@ -5,11 +5,13 @@ import {AccountDashboardComponent} from "./dashboard/account.dashboard.component
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {CreateAccountComponent} from "./create/create.account.component";
+import {UpdateAccountComponent} from "./update/update.account.component";
 
 @NgModule({
   declarations: [
     AccountDashboardComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    UpdateAccountComponent
   ],
 
   imports: [
