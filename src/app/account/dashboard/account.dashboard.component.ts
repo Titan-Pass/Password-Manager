@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AccountService} from "../shared/account.service";
 import {Observable} from "rxjs";
 import {AccountList} from "../shared/account-list.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,8 @@ export class AccountDashboardComponent implements OnInit {
   $accounts: Observable<AccountList> | undefined;
 
 
-  constructor(private _accountService: AccountService) { }
+  constructor(private _accountService: AccountService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.getAccounts()
@@ -24,6 +26,10 @@ export class AccountDashboardComponent implements OnInit {
 
   sortAccountsByGroupAscending(): void{
     this.$accounts = this._accountService.getAccounts();
+  }
+
+  createNewAccount(){
+    this._router.navigateByUrl('accounts/create');
   }
 
 }
