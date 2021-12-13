@@ -1,6 +1,4 @@
-
-
-<div class="HeaderContainer">
+<div class="HeaderContainer" xmlns="http://www.w3.org/1999/html">
   <div class="HeaderBox">
     Group
   </div>
@@ -15,6 +13,23 @@
   </div>
 </div>
 
+<table *ngIf="$accounts | async as accountsList" >
+  <tr>
+    <td>Group</td>
+    <td>Website</td>
+    <td>Email</td>
+    <td>Password</td>
+    <td></td>
+  </tr>
+  <tr *ngFor="let account of accountsList.list">
+    <td >{{account.group.name}}</td>
+    <td >{{account.name}}</td>
+    <td >{{account.email}}</td>
+    <td >{{account.encryptedPassword}}</td>
+    <td><button>Update</button> <button>X</button></td>
+  </tr>
+</table>
+<!--
 <ul *ngIf="$accounts | async as accountsList">
   <div class="MainContainer">
   <div class="ItemContainer">
@@ -35,8 +50,9 @@
   <div class="ItemContainer">
     <tr *ngFor="let account of accountsList.list">
       <td class="ItemBox">{{account.encryptedPassword}}</td>
+
     </tr>
   </div>
   </div>
-</ul>
+</ul>-->
 
