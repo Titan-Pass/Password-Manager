@@ -4,7 +4,7 @@
 <ng-template #logoutTemp>
   <a [routerLink]="[]" (click)="logout()" style="margin: 5px">Logout</a>
 </ng-template>
-<a routerLink="account/dashboard" class="accountBtn" style="margin: 5px">Dashboard</a>
+<a routerLink="account/dashboard" class="accountBtn" style="margin: 5px" *ngIf="!jwt  ">Dashboard</a>
 <a routerLink="auth/create/user" class="joinBtn" style="margin: 5px">Join</a>
 <router-outlet></router-outlet>
 

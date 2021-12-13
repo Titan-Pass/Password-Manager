@@ -1,0 +1,5 @@
+<form [formGroup]="groupForm" (ngSubmit)="update()">
+  <label for="group-name">Group Name: </label>
+  <input id="group-name" type="text" formControlName="name">
+  <button type="submit" [disabled]="!groupForm.valid">Update</button>
+</form>
