@@ -14,14 +14,14 @@
     <td class="ItemBox">{{account.email}}</td>
     <td class="ItemBox">{{account.encryptedPassword}}</td>
     <td>
-      <button>Update</button>
-      <button (click)="deleteAccountWindow(account.id)">X</button>
+      <button [value]="account.id">Update</button>
+      <button (click)="popupWindow_deleteAccount_show(account.id)">X</button>
     </td>
   </tr>
 
 </div>
   <div class="button_container">
-  <button (click)="popupWindow_manageGroups_show()" class="button">Menage groups</button>
+  <button (click)="popupWindow_manageGroups_show()" class="button">Manage groups</button>
   <button class="button right" (click)="addAccount()">Add client</button>
   </div>
 
@@ -35,18 +35,18 @@
     <label class="pop-up_labelOne">Are you sure you want</label>
     <label class="pop-up_labelTwo">to delete the client?</label>
 
-
-    <div    class="pop-up_accountInformation_Container">
+    <div class="pop-up_accountInformation_Container">
       <label class="pop-up_label" id="groupNameLabel"></label>
       <label class="pop-up_label" id="WebsiteNameLabel"></label>
       <label class="pop-up_label" id="EmailNameLabl"></label>
       <label></label>
     </div>
 
-    <button class="pop-up_button_yes" id="popUpContinueButtonYes"> Yes. </button>
+    <button class="pop-up_button_yes" id="popUpContinueButtonYes" (click)="deleteAccount(accountID)"> Yes. </button>
     <button class="pop-up_button_no" id="popUpContinueButtonNo" (click)="popupWindow_deleteAccount_hide()"> No. </button>
   </div>
 </div>
+
 
 
 <!-- Pop Up Window if User Wants to manage groups -->

@@ -17,7 +17,7 @@
   <button class="GenerateButton" type="submit">Generate</button>
   <input type="password" id="encryptedPassword" #encryptedPassword name="encryptedPassword" placeholder="**********" class="BoxDesign">
 
-  <button class="AddButton" type="submit" (click)="popUp_Windpw_Show()">Add</button>
+  <button class="AddButton" type="submit" (click)="popUp_Window_Show()">Add</button>
   <button class="BackButton" (click)="goBack()">Back</button>
 
 </div>
@@ -28,7 +28,7 @@
   <div class="pop-up_container_confirm">
     <label class="pop-up_label_oneConfirm">Confirm with</label>
     <label class="pop-up_label_TwoConfirm">Login password.</label>
-    <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm" placeholder="**********">
+    <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm" placeholder="**********" (click)="masterPasswordWarning_hide()">
     <div class="masterPassword_warning" id="masterPassword_warning">
       <div>
         Wrong password.

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AccountService} from "../shared/account.service";
 import {Observable} from "rxjs";
 import {AccountList} from "../shared/account-list.model";
 import {Router} from "@angular/router";
-import {group} from "@angular/animations";
+import {Account} from "../shared/account.model";
 
 
 @Component({
@@ -13,13 +13,14 @@ import {group} from "@angular/animations";
 })
 export class AccountDashboardComponent implements OnInit {
   $accounts: Observable<AccountList> | undefined;
+  public accountID: number = 0;
 
 
   constructor(private _accountService: AccountService,
               private _router: Router) { }
 
 
-  public account: AccountService [] = [];
+
 
   ngOnInit(): void {
     this.getAccounts()
@@ -38,31 +39,22 @@ export class AccountDashboardComponent implements OnInit {
     this._router.navigateByUrl('group/create');
   }
 
-  deleteAccountWindow(id: number): void{
+  deleteAccountWindow(id: any): void{
     this.popupWindow_deleteAccount_show(id)
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  deleteAccount(id: number){
+    if(id !=0){
+      this._accountService.delete(id).subscribe();
+      window.location.reload();
+    }
+  }
 
 
   popupWindow_manageGroups_show(){
     // @ts-ignore
     document.querySelector('.groups_pop-up_background').style.display = 'flex';
+
   }
   popupWindow_manageGroups_hide(){
     // @ts-ignore
@@ -71,15 +63,7 @@ export class AccountDashboardComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
-  popupWindow_deleteAccount_show(accountId: number)  {
+  popupWindow_deleteAccount_show(id: any)  {
     // @ts-ignore
     document.querySelector('.pop-up_background').style.display = 'flex';
     // @ts-ignore
@@ -87,7 +71,9 @@ export class AccountDashboardComponent implements OnInit {
     // @ts-ignore
     document.getElementById('WebsiteNameLabel').innerText="Website <- Here";
     // @ts-ignore
-    document.getElementById('EmailNameLabl').innerText= "Email <- Here";
+    document.getElementById('EmailNameLabl').innerText="Email: " ;
+    this.accountID =  +id.valueOf();
+
   }
 
   popupWindow_deleteAccount_hide(){

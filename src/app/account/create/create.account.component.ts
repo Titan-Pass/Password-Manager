@@ -37,6 +37,20 @@ export class CreateAccountComponent implements OnInit {
   }
 
   create(email: string, name: string, encryptedPassword: string, masterPassword: string, groupId: number, ): void {
+    if(this.checksMasterpassword()){
+      this._accountService.createAccount({
+        email,
+        name,
+        encryptedPassword,
+        masterPassword,
+        groupId
+      } as Account).subscribe(value => {});
+    }else{
+      this.masterPasswordWarning_show();
+    }
+  }
+  /*
+   create(email: string, name: string, encryptedPassword: string, masterPassword: string, groupId: number, ): void {
     this._accountService.createAccount({
       email,
       name,
@@ -45,14 +59,34 @@ export class CreateAccountComponent implements OnInit {
       groupId
     } as Account).subscribe(value => {});
   }
+   */
 
+  checksMasterpassword():boolean{
+    return false;
+  }
 
-  popUp_Windpw_Show(){
+  popUp_Window_Show(){
     // @ts-ignore
     document.querySelector('.pop-up_background').style.display = 'flex';
   }
   goBack(){
     window.history.back();
+  }
+  masterPasswordWarning_show(){
+    // @ts-ignore
+    document.querySelector('.masterPassword_warning').style.display = 'flex';
+    // @ts-ignore
+    document.querySelector('.pop-up_container_confirm').style.height = '280px';
+    // @ts-ignore
+    document.querySelector('.pop-up_button_confirm').style.marginTop = '50px';
+  }
+  masterPasswordWarning_hide(){
+    // @ts-ignore
+    document.querySelector('.masterPassword_warning').style.display = 'none';
+    // @ts-ignore
+    document.querySelector('.pop-up_container_confirm').style.height = '260px';
+    // @ts-ignore
+    document.querySelector('.pop-up_button_confirm').style.marginTop = '30px';
   }
 
 

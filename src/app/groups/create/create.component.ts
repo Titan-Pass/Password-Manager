@@ -48,7 +48,7 @@ export class CreateComponent implements OnInit {
   }
 
   continue(){
-    this._router.navigateByUrl('accounts/dashboard');
+    window.history.back();
   }
   showPopUpWindow(){
     // @ts-ignore
