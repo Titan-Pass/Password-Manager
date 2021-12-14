@@ -2,7 +2,7 @@
 <form [formGroup]="accountForm" class="WhiteContainer" (ngSubmit)="update()">
   <label for="group-select" class="LabelDesign">Group:</label>
   <button class="NewButton" type="submit">New</button>
-  <select id="group-select" class="DropDownBox" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
+  <select id="group-select" class="DropDownBox" formControlName="groupId" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
     <option value="" selected hidden>Select</option>
     <option *ngFor="let group of groupsList.list" (select)="group.id" [value]="group.id" > {{group.name}} </option>
     <button class="NewButton">
@@ -23,4 +23,6 @@
   <button class="GenerateButton" type="submit">Generate</button>
   <input type="password" id="encryptedPassword" #encryptedPassword formControlName="encryptedPassword" name="encryptedPassword" class="BoxDesign">
 
+  <button class="AddButton" type="submit" [disabled]="!accountForm.valid">Update</button>
+  <button class="BackButton" (click)="goBack()" type="button" >Back</button>
 </form>

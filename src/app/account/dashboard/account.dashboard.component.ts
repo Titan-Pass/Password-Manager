@@ -19,9 +19,6 @@ export class AccountDashboardComponent implements OnInit {
   constructor(private _accountService: AccountService,
               private _router: Router) { }
 
-
-
-
   ngOnInit(): void {
     this.getAccounts()
   }
@@ -30,6 +27,9 @@ export class AccountDashboardComponent implements OnInit {
     this.$accounts = this._accountService.getAccounts();
   }
 
+  updateAccount(id: number) {
+    this._router.navigateByUrl('accounts/update/' + id)
+  }
 
   sortAccountsByGroupAscending(): void{
     this.$accounts = this._accountService.getAccounts();
@@ -50,7 +50,6 @@ export class AccountDashboardComponent implements OnInit {
     }
   }
 
-
   popupWindow_manageGroups_show(){
     // @ts-ignore
     document.querySelector('.groups_pop-up_background').style.display = 'flex';
@@ -60,8 +59,6 @@ export class AccountDashboardComponent implements OnInit {
     // @ts-ignore
     document.querySelector('.groups_pop-up_background').style.display = 'none';
   }
-
-
 
   popupWindow_deleteAccount_show(id: any)  {
     // @ts-ignore
@@ -86,8 +83,6 @@ export class AccountDashboardComponent implements OnInit {
     // @ts-ignore
     document.getElementById('EmailNameLabl').after('');
   }
-
-
 
   newGroup(){
     this._router.navigateByUrl("groups/create");

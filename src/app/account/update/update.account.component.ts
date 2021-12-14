@@ -17,7 +17,8 @@ export class UpdateAccountComponent implements OnInit {
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     masterPassword: new FormControl('', Validators.required),
-    encryptedPassword: new FormControl('', Validators.required)
+    encryptedPassword: new FormControl('', Validators.required),
+    groupId: new FormControl('', Validators.required)
   })
 
   $groups: Observable<GroupList> | undefined;
@@ -42,6 +43,10 @@ export class UpdateAccountComponent implements OnInit {
 
   getGroups(): void {
     this.$groups = this._groupService.getGroups();
+  }
+
+  goBack() {
+    window.history.back()
   }
 
   update() {

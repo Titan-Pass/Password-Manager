@@ -14,7 +14,7 @@
     <td class="ItemBox">{{account.email}}</td>
     <td class="ItemBox">{{account.encryptedPassword}}</td>
     <td>
-      <button [value]="account.id">Update</button>
+      <button (click)="updateAccount(account.id)" [value]="account.id">Update</button>
       <button (click)="popupWindow_deleteAccount_show(account.id)">X</button>
     </td>
   </tr>
