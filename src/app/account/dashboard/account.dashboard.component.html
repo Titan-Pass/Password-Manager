@@ -10,9 +10,9 @@
 
 <div class="ContainerMargin">
   <tr *ngFor="let account of accountsList.list" class="ItemContainer">
-    <td class="ItemBox">{{account.group.name}}</td>
-    <td class="ItemBox">{{account.name}}</td>
-    <td class="ItemBox">{{account.email}}</td>
+    <td class="ItemBox" #group>{{account.group.name}}</td>
+    <td class="ItemBox" #name>{{account.name}}</td>
+    <td class="ItemBox" #email>{{account.email}}</td>
     <td class="ItemBox ">{{account.encryptedPassword}}
     <td>
       <button (click)="updateAccount(account.id)" [value]="account.id">Update</button>
@@ -40,7 +40,7 @@
     <div class="pop-up_accountInformation_Container">
       <label class="pop-up_label" id="groupNameLabel"></label>
       <label class="pop-up_label" id="WebsiteNameLabel"></label>
-      <label class="pop-up_label" id="EmailNameLabl"></label>
+      <label class="pop-up_label" id="EmailNameLabel"></label>
       <label></label>
     </div>
 
