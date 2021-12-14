@@ -14,6 +14,8 @@ import {Password} from "../shared/password.model";
 export class AccountDashboardComponent implements OnInit {
   $accounts: Observable<AccountList> | undefined;
   public accountID: number = 0;
+  public password: string = '';
+  public loginPassword: string = '';
 
   constructor(private _accountService: AccountService,
               private _router: Router) { }
@@ -27,9 +29,10 @@ export class AccountDashboardComponent implements OnInit {
   }
 
   getPassword(id: number, password: string): void {
-    this.accountID =  +id.valueOf();
-    this._accountService.getPassword({id, password} as Password);
-    window.location.reload();
+    id = this.accountID;
+    this._accountService.getPassword({id, password} as Password).subscribe(value => {
+      this.password = value.password
+    });
   }
 
   updateAccount(id: number) {
@@ -89,6 +92,13 @@ export class AccountDashboardComponent implements OnInit {
     document.getElementById('EmailNameLabl').after('');
   }
 
+  goBack(): void {
+    this.password = '';
+    this.loginPassword = '';
+    // @ts-ignore
+    document.querySelector('.pop-up_password').style.display = 'none';
+  }
+
   newGroup(){
     this._router.navigateByUrl("groups/create");
   }
@@ -101,8 +111,9 @@ export class AccountDashboardComponent implements OnInit {
     this._router.navigateByUrl("accounts/create");
   }
 
-  popUp_Window_Show(){
+  popUp_Window_Show(id: any){
     // @ts-ignore
     document.querySelector('.pop-up_password').style.display = 'flex';
+    this.accountID =  +id.valueOf();
   }
 }

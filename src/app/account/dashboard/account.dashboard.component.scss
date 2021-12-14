@@ -270,6 +270,7 @@
   background-color: rgba(0,0,0,0.75);
   position: absolute;
   top:0;
+  align-self: center;
   justify-content: center;
   align-items: center;
   display: none;
@@ -281,7 +282,7 @@
 .pop-up_container_confirm{
   flex-direction: column;
   width: 350+5px;
-  height: 260px;
+  height: 350px;
   background: #FFFFFF;
   border-radius: 20px;
   display: flex;

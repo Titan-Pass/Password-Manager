@@ -14,12 +14,10 @@
     <td class="ItemBox" #group>{{account.group.name}}</td>
     <td class="ItemBox" #name>{{account.name}}</td>
     <td class="ItemBox" #email>{{account.email}}</td>
-    <td class="ItemBox ">{{account.encryptedPassword}}
-    
-    <td>
+    <td><td>
       <button (click)="updateAccount(account.id)" [value]="account.id">Update</button>
       <button (click)="popupWindow_deleteAccount_show(account.id)">X</button>
-      <button (click)="popUp_Window_Show()">Show</button>
+      <button (click)="popUp_Window_Show(account.id)">Show password</button>
     </td>
   </tr>
 
@@ -71,13 +69,14 @@
   <div class="pop-up_container_confirm">
     <label class="pop-up_label_oneConfirm">Confirm with</label>
     <label class="pop-up_label_TwoConfirm">Login password.</label>
-    <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm" placeholder="**********">
+    <input type="password" [(ngModel)]="loginPassword" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm">
     <div class="masterPassword_warning" id="masterPassword_warning">
       <div>
         Wrong password.
       </div>
     </div>
     <button class="pop-up_button_confirm" id="popUpContinueButton_password" (click)="getPassword(accountID, masterPassword.value)"> Confirm </button>
-    <button class="pop-up_button_quit" id="popUpQuitButton_password"> Quit </button>
+    <label class="pop-up_labelOne">{{password}}</label>
+    <button class="pop-up_button_quit" id="popUpQuitButton_password" (click)="goBack()"> Back </button>
   </div>
 </div>
