@@ -1,8 +1,14 @@
-<div class="WhiteContainer">
+<div class="WhiteContainer" id="WhiteContainer">
   <label for="NewGroup" class="LabelDesign">New Group:</label>
-  <input class="BoxDesign"  id="NewGroup" name="NewGroup">
+  <input class="BoxDesign" (click)="groupName_Warning_reset()" id="NewGroup" #newGroupName name="NewGroup">
 
-  <button class="CreateButton" type="submit">Create</button>
+  <div class="groupName_Warning-CanNotBeNull" id="groupName_Warning-CanNotBeNull">
+    <div>
+      Group name can not be empty.
+    </div>
+  </div>
+
+  <button class="CreateButton" type="submit" (click)="create(newGroupName.value)">Create</button>
   <button class="BackButton" (click)="goBack()">Back</button>
 
 </div>

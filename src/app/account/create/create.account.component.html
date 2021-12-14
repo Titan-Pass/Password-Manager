@@ -2,7 +2,7 @@
 <div class="WhiteContainer">
 
   <label for="group-select" class="LabelDesign">Group:</label>
-  <button class="NewButton" type="submit">New</button>
+  <button class="NewButton" (click)="newGroup()" >New</button>
  <select id="group-select" class="DropDownBox" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
    <option value="" selected hidden>Select</option>
    <option *ngFor="let group of groupsList.list" (select)="group.id" [value]="group.id" > {{group.name}} </option>

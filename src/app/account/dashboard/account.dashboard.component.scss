@@ -75,7 +75,7 @@
   top:0;
   justify-content: center;
   align-items: center;
-  display: flex;
+  display: none;
 }
 .pop-up_background-show{
   display: flex;
@@ -117,7 +117,7 @@
   background: #33CC33;
   border-radius: 20px;
   align-self: center;
-  margin-top: 20px;
+
   text-align: center;
   font-size: 20px;
   font-weight: bold;
@@ -142,14 +142,89 @@
   flex-direction: column;
   width: 160px;
   height: 120px;
+  margin-top: 30px;
   background: #FFFFFF;
   border-radius: 20px;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   text-align: center;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  font-size: 10+3px;
   color: #000000;
+}
+.pop-up_label{
+  margin-top: 5px;
 }
 
 
 
+.groups_pop-up_background{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.75);
+  position: absolute;
+  top:0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.groups_pop-up_Container{
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+  height: 180px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+  position: relative;
+}
+.groups_popUp_button{
+  width: 120+5px;
+  height: 30px;
+  background: #A38D65;
+  border-radius: 20px;
+  align-self: center;
+
+  text-align: center;
+  font-size: 10+2px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #FFFFFF;
+}
+
+.groups_popUp_buttonContainer{
+  margin-top: 20px;
+
+}
+.groups_popUp_buttonRight{
+  margin-left: 20px;
+  width: 120+5px;
+  height: 30px;
+  background: #A38D65;
+  border-radius: 20px;
+  align-self: center;
+
+  text-align: center;
+  font-size: 10+2px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #FFFFFF;
+
+}
+.groups_pop-up_Exit{
+  border-width: 0;
+  background-color: #FFFFFF;
+  position: absolute;
+  top:5px;
+  right:14px;
+  transform: rotate(45deg);
+  font-size:30px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #C23838;
+}

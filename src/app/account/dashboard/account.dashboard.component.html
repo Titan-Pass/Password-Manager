@@ -13,30 +13,52 @@
     <td class="ItemBox">{{account.name}}</td>
     <td class="ItemBox">{{account.email}}</td>
     <td class="ItemBox">{{account.encryptedPassword}}</td>
-    <td><button>Update</button> <button (click)="showPopUpWindow()">X</button></td>
+
+    <td>
+      <button>Update</button>
+      <button (click)="deleteAccountWindow(account.id)">X</button>
+    </td>
   </tr>
 </div>
-  <button (click)="createNewGroup()" class="NewGroup">Create new group</button>
+  <button (click)="popupWindow_manageGroups_show()" class="NewGroup">Menage groups</button>
 </table>
 
 
 
 
 <!-- Pop Up Window if User Wants to Delete account -->
+<!-- TODO Show accounts email, website, and group in pop up TODO -->
 
-<div class="pop-up_background" id="popUpBackground">
+<div class="pop-up_background" id="DeleteAccount_popUpWindow_Backround">
   <div class="pop-up_container">
     <label class="pop-up_labelOne">Are you sure you want</label>
     <label class="pop-up_labelTwo">to delete the client?</label>
 
 
-    <div class="pop-up_accountInformation_Container">
-      <label>Groups</label>
-      <label>Website</label>
-      <label>Email</label>
+    <div    class="pop-up_accountInformation_Container">
+      <label class="pop-up_label" id="groupNameLabel"></label>
+      <label class="pop-up_label" id="WebsiteNameLabel"></label>
+      <label class="pop-up_label" id="EmailNameLabl"></label>
+      <label></label>
     </div>
 
     <button class="pop-up_button_yes" id="popUpContinueButtonYes"> Yes. </button>
-    <button class="pop-up_button_no" id="popUpContinueButtonNo" (click)="closePopUpWindow()"> No. </button>
+    <button class="pop-up_button_no" id="popUpContinueButtonNo" (click)="popupWindow_deleteAccount_hide()"> No. </button>
+  </div>
+</div>
+
+
+<!-- Pop Up Window if User Wants to manage groups -->
+<div class="groups_pop-up_background" id="menageGroups_popUpWindow_Backround">
+  <div class="groups_pop-up_Container">
+
+    <button class="groups_pop-up_Exit" (click)="popupWindow_manageGroups_hide()">+</button>
+    <label class="pop-up_labelOne">What do you want </label>
+    <label class="pop-up_labelTwo">to do?</label>
+
+    <div class="groups_popUp_buttonContainer">
+    <button class="groups_popUp_button">Delete group</button>
+      <button class="groups_popUp_buttonRight" (click)="newGroup()">Add group</button>
+    </div>
   </div>
 </div>

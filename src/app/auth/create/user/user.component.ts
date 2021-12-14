@@ -38,9 +38,13 @@ export class UserComponent implements OnInit {
     // @ts-ignore
     document.querySelector('.pop-up_background').style.display = 'flex';
   }
-  showPaswordWarning(){
+  showPasswordWarning(){
     // @ts-ignore
     document.querySelector('.PasswordWarning').style.display = 'flex';
+  }
+  HidePasswordWarning(){
+    // @ts-ignore
+    document.querySelector('.PasswordWarning').style.display = 'none';
   }
 
 
@@ -50,7 +54,7 @@ export class UserComponent implements OnInit {
     }
 
     else{
-      this.showPaswordWarning()
+      this.showPasswordWarning()
       return false;
     }
   }

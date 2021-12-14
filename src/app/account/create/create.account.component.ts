@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {GroupList} from "../../groups/shared/group-list.model";
 import {Account} from "../shared/account.model";
 import {Group} from "../../groups/shared/group.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-account',
@@ -15,7 +16,7 @@ export class CreateAccountComponent implements OnInit {
   $groups: Observable<GroupList> | undefined;
   public selectedGroup: number = 0;
 
-  constructor(private _accountService: AccountService, private _groupService: GroupService) { }
+  constructor(private _accountService: AccountService, private _groupService: GroupService, private _router:Router) { }
 
   ngOnInit(): void {
     this.getGroups();
@@ -37,4 +38,10 @@ export class CreateAccountComponent implements OnInit {
   goBack(){
     window.history.back();
   }
+
+  newGroup(){
+    this._router.navigateByUrl("groups/create")
+}
+
+
 }
