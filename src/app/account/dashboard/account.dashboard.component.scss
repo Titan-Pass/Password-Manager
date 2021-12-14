@@ -112,7 +112,7 @@
   flex-direction: column;
   align-items: center;
   width: 300px;
-  height: 380px;
+  height: 330px;
   background: #FFFFFF;
   border-radius: 20px;
   display: flex;
@@ -128,14 +128,14 @@
   font-family: Roboto, sans-serif;
   color: black;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
 }
 .pop-up_labelTwo{
   margin-top: 15px;
   font-family: Roboto, sans-serif;
   color: black;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
 }
 .pop-up_button_yes{
   width: 80px;
@@ -165,8 +165,8 @@
 
 .pop-up_accountInformation_Container{
   flex-direction: column;
-  width: 160px;
-  height: 120px;
+  width: 290px;
+  height: 80+5px;
   margin-top: 30px;
   background: #FFFFFF;
   border-radius: 20px;

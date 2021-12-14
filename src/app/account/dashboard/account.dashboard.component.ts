@@ -16,6 +16,7 @@ export class AccountDashboardComponent implements OnInit {
   public accountID: number = 0;
   public password: string = '';
   public loginPassword: string = '';
+  accountToDelete : Account | undefined;
 
   constructor(private _accountService: AccountService,
               private _router: Router) { }
@@ -51,10 +52,13 @@ export class AccountDashboardComponent implements OnInit {
     this.popupWindow_deleteAccount_show(id)
   }
 
-  deleteAccount(id: number){
-    if(id !=0){
-      this._accountService.delete(id).subscribe();
-      window.location.reload();
+  deleteAccount(){
+    let id: number | undefined = this.accountToDelete?.id;
+    if(id && id !=0){
+      this._accountService.delete(id).subscribe(()=>{
+        this.getAccounts();
+        this.accountToDelete = undefined;
+      });
     }
   }
 
@@ -68,28 +72,12 @@ export class AccountDashboardComponent implements OnInit {
     document.querySelector('.groups_pop-up_background').style.display = 'none';
   }
 
-  popupWindow_deleteAccount_show(id: any)  {
-    // @ts-ignore
-    document.querySelector('.pop-up_background').style.display = 'flex';
-    // @ts-ignore
-    document.getElementById('groupNameLabel').innerText ="group <- Here";
-    // @ts-ignore
-    document.getElementById('WebsiteNameLabel').innerText="Website <- Here";
-    // @ts-ignore
-    document.getElementById('EmailNameLabel').innerText="Email: " ;
-    this.accountID =  +id.valueOf();
-
+  popupWindow_deleteAccount_show(account: Account)  {
+    this.accountToDelete = account
   }
 
   popupWindow_deleteAccount_hide(){
-    // @ts-ignore
-    document.querySelector('.pop-up_background').style.display = 'none';
-    // @ts-ignore
-    document.getElementById('groupNameLabel').dir('');
-    // @ts-ignore
-    document.getElementById('WebsiteNameLabel').after('');
-    // @ts-ignore
-    document.getElementById('EmailNameLabl').after('');
+    this.accountToDelete = undefined;
   }
 
   goBack(): void {

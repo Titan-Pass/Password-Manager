@@ -16,7 +16,7 @@
     <td class="ItemBox" #email>{{account.email}}</td>
     <td><td>
       <button (click)="updateAccount(account.id)" [value]="account.id">Update</button>
-      <button (click)="popupWindow_deleteAccount_show(account.id)">X</button>
+      <button (click)="popupWindow_deleteAccount_show(account)">X</button>
       <button (click)="popUp_Window_Show(account.id)">Show password</button>
     </td>
   </tr>
@@ -32,19 +32,19 @@
 <!-- Pop Up Window if User Wants to Delete account -->
 <!-- TODO Show accounts email, website, and group in pop up TODO -->
 
-<div class="pop-up_background" id="DeleteAccount_popUpWindow_Backround">
+<div class="pop-up_background"  [style.display]="accountToDelete?'flex': 'none'" id="DeleteAccount_popUpWindow_Backround">
   <div class="pop-up_container">
     <label class="pop-up_labelOne">Are you sure you want</label>
     <label class="pop-up_labelTwo">to delete the account?</label>
 
     <div class="pop-up_accountInformation_Container">
-      <label class="pop-up_label" id="groupNameLabel"></label>
-      <label class="pop-up_label" id="WebsiteNameLabel"></label>
-      <label class="pop-up_label" id="EmailNameLabel"></label>
-      <label></label>
+      <label class="pop-up_label" id="groupNameLabel">Group: {{accountToDelete?.group?.name}}</label>
+      <label class="pop-up_label" id="WebsiteNameLabel">Website: {{accountToDelete?.name}}</label>
+      <label class="pop-up_label" id="EmailNameLabel">Email: {{accountToDelete?.email}}</label>
+
     </div>
 
-    <button class="pop-up_button_yes" id="popUpContinueButtonYes" (click)="deleteAccount(accountID)"> Yes. </button>
+    <button class="pop-up_button_yes" id="popUpContinueButtonYes" (click)="deleteAccount()"> Yes. </button>
     <button class="pop-up_button_no" id="popUpContinueButtonNo" (click)="popupWindow_deleteAccount_hide()"> No. </button>
   </div>
 </div>
