@@ -41,7 +41,9 @@ export class CreateAccountComponent implements OnInit {
       encryptedPassword,
       masterPassword,
       groupId
-    } as Account).subscribe(value => {});
+    } as Account).subscribe(value => {
+      this.goBack()
+    });
   }
 
   popUp_Window_Show(){
