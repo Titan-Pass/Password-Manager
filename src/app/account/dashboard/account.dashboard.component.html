@@ -7,15 +7,17 @@
     <td class="HeaderBox">Password</td>
     <td></td>
   </tr>
+
 <div class="ContainerMargin">
   <tr *ngFor="let account of accountsList.list" class="ItemContainer">
     <td class="ItemBox">{{account.group.name}}</td>
     <td class="ItemBox">{{account.name}}</td>
     <td class="ItemBox">{{account.email}}</td>
-    <td class="ItemBox">{{account.encryptedPassword}}</td>
+    <td class="ItemBox ">{{account.encryptedPassword}}
     <td>
       <button (click)="updateAccount(account.id)" [value]="account.id">Update</button>
       <button (click)="popupWindow_deleteAccount_show(account.id)">X</button>
+      <button (click)="popUp_Window_Show()">Show</button>
     </td>
   </tr>
 
@@ -47,8 +49,6 @@
   </div>
 </div>
 
-
-
 <!-- Pop Up Window if User Wants to manage groups -->
 <div class="groups_pop-up_background" id="menageGroups_popUpWindow_Backround">
   <div class="groups_pop-up_Container">
@@ -61,5 +61,21 @@
     <button class="groups_popUp_button" (click)="deleteGroup()">Delete group</button>
       <button class="groups_popUp_buttonRight" (click)="newGroup()">Add group</button>
     </div>
+  </div>
+</div>
+
+<!-- Pop up window to show password-->
+<div class="pop-up_password" id="popUpBackground_password">
+  <div class="pop-up_container_confirm">
+    <label class="pop-up_label_oneConfirm">Confirm with</label>
+    <label class="pop-up_label_TwoConfirm">Login password.</label>
+    <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm" placeholder="**********">
+    <div class="masterPassword_warning" id="masterPassword_warning">
+      <div>
+        Wrong password.
+      </div>
+    </div>
+    <button class="pop-up_button_confirm" id="popUpContinueButton_password" (click)="getPassword(accountID, masterPassword.value)"> Confirm </button>
+    <button class="pop-up_button_quit" id="popUpQuitButton_password"> Quit </button>
   </div>
 </div>
