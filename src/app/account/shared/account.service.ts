@@ -5,6 +5,8 @@ import {Observable} from "rxjs";
 import {AccountList} from "./account-list.model";
 import {Account} from "./account.model";
 import {Group} from "../../groups/shared/group.model";
+import {Password} from "./password.model";
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +24,8 @@ export class AccountService {
     return this._http.get<Account>(this.accountsApi + '/' + id);
   }
 
-  getPassword(id: number, password: string) {
-    let params = new HttpParams();
-    params = params.append('var1', id);
-    params = params.append('var2', password);
-    return this._http.get(this.accountsApi + '/decrypt', {params: params});
+  getPassword(password: Password): Observable<Password> {
+    return this._http.post<Password>(this.accountsApi + '/decrypt', password);
   }
 
   createAccount(account: Account): Observable<Account> {

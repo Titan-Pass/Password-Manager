@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {AccountList} from "../shared/account-list.model";
 import {Router} from "@angular/router";
 import {Account} from "../shared/account.model";
-
+import {Password} from "../shared/password.model";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +14,6 @@ import {Account} from "../shared/account.model";
 export class AccountDashboardComponent implements OnInit {
   $accounts: Observable<AccountList> | undefined;
   public accountID: number = 0;
-
 
   constructor(private _accountService: AccountService,
               private _router: Router) { }
@@ -29,7 +28,7 @@ export class AccountDashboardComponent implements OnInit {
 
   getPassword(id: number, password: string): void {
     this.accountID =  +id.valueOf();
-    this._accountService.getPassword(id, password);
+    this._accountService.getPassword({id, password} as Password);
     window.location.reload();
   }
 

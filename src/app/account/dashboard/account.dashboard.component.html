@@ -10,10 +10,17 @@
 
 <div class="ContainerMargin">
   <tr *ngFor="let account of accountsList.list" class="ItemContainer">
+
     <td class="ItemBox" #group>{{account.group.name}}</td>
     <td class="ItemBox" #name>{{account.name}}</td>
     <td class="ItemBox" #email>{{account.email}}</td>
     <td class="ItemBox ">{{account.encryptedPassword}}
+
+    <td class="ItemBox">{{account.group.name}}</td>
+    <td class="ItemBox">{{account.name}}</td>
+    <td class="ItemBox">{{account.email}}</td>
+    <td class="ItemBox ">
+
     <td>
       <button (click)="updateAccount(account.id)" [value]="account.id">Update</button>
       <button (click)="popupWindow_deleteAccount_show(account.id)">X</button>
