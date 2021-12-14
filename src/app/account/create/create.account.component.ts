@@ -18,8 +18,6 @@ export class CreateAccountComponent implements OnInit {
   $groups: Observable<GroupList> | undefined;
   public selectedGroup: number = 0;
 
-
-
   constructor(private _accountService: AccountService,
               private _groupService: GroupService,
               private _router:Router) { }
@@ -89,10 +87,7 @@ export class CreateAccountComponent implements OnInit {
     document.querySelector('.pop-up_button_confirm').style.marginTop = '30px';
   }
 
-
   newGroup(){
     this._router.navigateByUrl("groups/create")
-}
-
-
+  }
 }

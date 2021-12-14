@@ -27,6 +27,12 @@ export class AccountDashboardComponent implements OnInit {
     this.$accounts = this._accountService.getAccounts();
   }
 
+  getPassword(id: number, password: string): void {
+    this.accountID =  +id.valueOf();
+    this._accountService.getPassword(id, password);
+    window.location.reload();
+  }
+
   updateAccount(id: number) {
     this._router.navigateByUrl('accounts/update/' + id)
   }
@@ -68,7 +74,7 @@ export class AccountDashboardComponent implements OnInit {
     // @ts-ignore
     document.getElementById('WebsiteNameLabel').innerText="Website <- Here";
     // @ts-ignore
-    document.getElementById('EmailNameLabl').innerText="Email: " ;
+    document.getElementById('EmailNameLabel').innerText="Email: " ;
     this.accountID =  +id.valueOf();
 
   }
@@ -96,4 +102,8 @@ export class AccountDashboardComponent implements OnInit {
     this._router.navigateByUrl("accounts/create");
   }
 
+  popUp_Window_Show(){
+    // @ts-ignore
+    document.querySelector('.pop-up_password').style.display = 'flex';
+  }
 }

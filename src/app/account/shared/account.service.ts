@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AccountList} from "./account-list.model";
 import {Account} from "./account.model";
@@ -20,6 +20,13 @@ export class AccountService {
 
   getAccount(id: number):Observable<Account> {
     return this._http.get<Account>(this.accountsApi + '/' + id);
+  }
+
+  getPassword(id: number, password: string) {
+    let params = new HttpParams();
+    params = params.append('var1', id);
+    params = params.append('var2', password);
+    return this._http.get(this.accountsApi + '/decrypt', {params: params});
   }
 
   createAccount(account: Account): Observable<Account> {
