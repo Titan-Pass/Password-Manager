@@ -104,51 +104,15 @@ export class AccountDashboardComponent implements OnInit {
 
 
   newGroup(){
-    this._router.navigateByUrl("groups/create")
-  }
-//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO
-  updateGroup(){
-
+    this._router.navigateByUrl("groups/create");
   }
 
-
-
-
-
-
-
-
-
-
-
-  //TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO//TODO
-
-  getAccount_byId(accountId: number){
-    let accounts = this._accountService.getAccount(accountId).toPromise().then(function (account){
-
-      account.email,
-        account.group,
-        account.name
-    });
-
+  deleteGroup(){
+    this._router.navigateByUrl("groups/delete");
   }
 
-
-
-
-  /*
-  getAccountGroup(accountId: number): string{
-    let groupName: string;
-    groupName = 'groupName'
-    return groupName;
+  addAccount(){
+    this._router.navigateByUrl("accounts/create");
   }
-
-  getAccountWebsite(accountId: number): string{
-    let websiteName: string;
-    websiteName = 'websiteName'
-    return websiteName;
-  }
-  */
-
 
 }

@@ -13,18 +13,19 @@
     <td class="ItemBox">{{account.name}}</td>
     <td class="ItemBox">{{account.email}}</td>
     <td class="ItemBox">{{account.encryptedPassword}}</td>
-
     <td>
       <button>Update</button>
       <button (click)="deleteAccountWindow(account.id)">X</button>
     </td>
   </tr>
+
 </div>
-  <button (click)="popupWindow_manageGroups_show()" class="NewGroup">Menage groups</button>
+  <div class="button_container">
+  <button (click)="popupWindow_manageGroups_show()" class="button">Menage groups</button>
+  <button class="button right" (click)="addAccount()">Add client</button>
+  </div>
+
 </table>
-
-
-
 
 <!-- Pop Up Window if User Wants to Delete account -->
 <!-- TODO Show accounts email, website, and group in pop up TODO -->
@@ -57,7 +58,7 @@
     <label class="pop-up_labelTwo">to do?</label>
 
     <div class="groups_popUp_buttonContainer">
-    <button class="groups_popUp_button">Delete group</button>
+    <button class="groups_popUp_button" (click)="deleteGroup()">Delete group</button>
       <button class="groups_popUp_buttonRight" (click)="newGroup()">Add group</button>
     </div>
   </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GroupService} from "../shared/group.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-delete',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _groupService: GroupService,
+              private _router: Router) { }
 
   ngOnInit(): void {
   }

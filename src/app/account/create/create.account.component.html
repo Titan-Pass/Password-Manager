@@ -17,15 +17,41 @@
   <label for="Email" class="LabelDesign">Email:</label>
   <input type="text" id="Email" #email name="Email" placeholder="Email" class="BoxDesign">
 
-  <label for="masterPassword" class="LabelDesign"> Main password:</label>
-  <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign">
-
   <label for="encryptedPassword" class="LabelDesign">Password:</label>
   <button class="GenerateButton" type="submit">Generate</button>
   <input type="password" id="encryptedPassword" #encryptedPassword name="encryptedPassword" placeholder="**********" class="BoxDesign">
 
-  <button class="AddButton" type="submit" (click)="create(email.value, name.value, encryptedPassword.value, masterPassword.value, selectedGroup.valueOf())">Add</button>
+  <button class="AddButton" type="submit" (click)="popUp_Windpw_Show()">Add</button>
   <button class="BackButton" (click)="goBack()">Back</button>
 
 </div>
 
+<div class="pop-up_background" id="popUpBackground_password">
+  <div class="pop-up_container_confirm">
+    <label class="pop-up_label_oneConfirm">Confirm with</label>
+    <label class="pop-up_label_TwoConfirm">Login password.</label>
+    <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm" placeholder="**********">
+    <div class="masterPassword_warning" id="masterPassword_warning">
+      <div>
+        Wrong password.
+      </div>
+    </div>
+    <button class="pop-up_button_confirm" id="popUpContinueButton_password" (click)="create(email.value, name.value, encryptedPassword.value, masterPassword.value, selectedGroup.valueOf())"> Confirm </button>
+    <button class="pop-up_button_quit" id="popUpQuitButton_password" (click)="goBack()"> Quit </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!--  Message that shows the user that a new account has been created-->
+<div class="pop-up_background" id="popUpBackground_Done">
+  <div class="pop-up_container">
+    <label class="pop-up_labelOne">The Account</label>
+    <label class="pop-up_labelTwo">has been created.</label>
+    <button class="pop-up_button" id="popUpContinueButton_Done" (click)="goBack()"> Continue. </button>
+  </div>
+</div>

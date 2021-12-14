@@ -6,6 +6,8 @@ import {GroupList} from "../../groups/shared/group-list.model";
 import {Account} from "../shared/account.model";
 import {Group} from "../../groups/shared/group.model";
 import {Router} from "@angular/router";
+import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {LoginDto} from "../../auth/shared/login.dto";
 
 @Component({
   selector: 'app-account',
@@ -16,7 +18,11 @@ export class CreateAccountComponent implements OnInit {
   $groups: Observable<GroupList> | undefined;
   public selectedGroup: number = 0;
 
-  constructor(private _accountService: AccountService, private _groupService: GroupService, private _router:Router) { }
+
+
+  constructor(private _accountService: AccountService,
+              private _groupService: GroupService,
+              private _router:Router) { }
 
   ngOnInit(): void {
     this.getGroups();
@@ -30,14 +36,32 @@ export class CreateAccountComponent implements OnInit {
     this.$groups = this._groupService.getGroups();
   }
 
-  create(email: string, name: string, encryptedPassword: string, masterPassword: string, groupId: number, ): void {
-    this._accountService.createAccount({email, name, encryptedPassword, masterPassword, groupId} as Account).subscribe(value => {
-    });
+
+  confirmAccountCreateWithMasterPassword(){
+
   }
 
-  goBack(){
-    window.history.back();
+
+
+  create(email: string, name: string, encryptedPassword: string, masterPassword: string, groupId: number, ): void {
+    this._accountService.createAccount({
+      email,
+      name,
+      encryptedPassword,
+      masterPassword,
+      groupId
+    } as Account).subscribe(value => {});
   }
+
+
+  popUp_Windpw_Show(){
+    // @ts-ignore
+    document.querySelector('.pop-up_background').style.display = 'flex';
+  }
+  goBack(){
+    this._router.navigateByUrl('accounts/dashboard');
+  }
+
 
   newGroup(){
     this._router.navigateByUrl("groups/create")
