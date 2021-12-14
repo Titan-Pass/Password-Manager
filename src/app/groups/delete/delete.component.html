@@ -1,3 +1,6 @@
 <div class="WhiteContainer">
-
+  <select id="group-select" class="DropDownBox" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
+    <option value="" selected hidden>Select group</option>
+    <option *ngFor="let group of groupsList.list" (select)="group.id" [value]="group.id" > {{group.name}} </option>
+  </select>
 </div>

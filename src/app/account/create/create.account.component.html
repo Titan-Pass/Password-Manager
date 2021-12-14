@@ -1,4 +1,3 @@
-
 <div class="WhiteContainer">
 
   <label for="group-select" class="LabelDesign">Group:</label>
@@ -6,9 +5,6 @@
  <select id="group-select" class="DropDownBox" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
    <option value="" selected hidden>Select</option>
    <option *ngFor="let group of groupsList.list" (select)="group.id" [value]="group.id" > {{group.name}} </option>
-     <button class="NewButton">
-       nice
-     </button>
  </select>
 
   <label for="Name" class="LabelDesign">Website:</label>
@@ -26,6 +22,8 @@
 
 </div>
 
+
+<!-- pop-Up window which askes about the main password to confirm the new account -->
 <div class="pop-up_background" id="popUpBackground_password">
   <div class="pop-up_container_confirm">
     <label class="pop-up_label_oneConfirm">Confirm with</label>

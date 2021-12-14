@@ -19,7 +19,7 @@ export class CreateComponent implements OnInit {
   create(name: string,):void {
     if(name != ""){
       this._groupService.add({name} as Group).subscribe(value=> name);
-      this._router.navigateByUrl('accounts/create')
+      this.showPopUpWindow()
     }
     else{
       this.groupName_Warning_CannotBeNull();
@@ -47,5 +47,12 @@ export class CreateComponent implements OnInit {
     window.history.back();
   }
 
+  continue(){
+    this._router.navigateByUrl('accounts/dashboard');
+  }
+  showPopUpWindow(){
+    // @ts-ignore
+    document.querySelector('.pop-up_background').style.display = 'flex';
+  }
 
 }

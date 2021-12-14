@@ -36,13 +36,6 @@ export class CreateAccountComponent implements OnInit {
     this.$groups = this._groupService.getGroups();
   }
 
-
-  confirmAccountCreateWithMasterPassword(){
-
-  }
-
-
-
   create(email: string, name: string, encryptedPassword: string, masterPassword: string, groupId: number, ): void {
     this._accountService.createAccount({
       email,
@@ -59,7 +52,7 @@ export class CreateAccountComponent implements OnInit {
     document.querySelector('.pop-up_background').style.display = 'flex';
   }
   goBack(){
-    this._router.navigateByUrl('accounts/dashboard');
+    window.history.back();
   }
 
 
