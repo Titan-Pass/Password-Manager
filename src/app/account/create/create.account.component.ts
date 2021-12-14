@@ -47,17 +47,7 @@ export class CreateAccountComponent implements OnInit {
       this.masterPasswordWarning_show();
     }
   }
-  /*
-   create(email: string, name: string, encryptedPassword: string, masterPassword: string, groupId: number, ): void {
-    this._accountService.createAccount({
-      email,
-      name,
-      encryptedPassword,
-      masterPassword,
-      groupId
-    } as Account).subscribe(value => {});
-  }
-   */
+
 
   checksMasterpassword():boolean{
     return false;
