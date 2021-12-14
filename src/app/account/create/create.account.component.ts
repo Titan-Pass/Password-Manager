@@ -35,22 +35,13 @@ export class CreateAccountComponent implements OnInit {
   }
 
   create(email: string, name: string, encryptedPassword: string, masterPassword: string, groupId: number, ): void {
-    if(this.checksMasterpassword()){
-      this._accountService.createAccount({
-        email,
-        name,
-        encryptedPassword,
-        masterPassword,
-        groupId
-      } as Account).subscribe(value => {});
-    }else{
-      this.masterPasswordWarning_show();
-    }
-  }
-
-
-  checksMasterpassword():boolean{
-    return false;
+    this._accountService.createAccount({
+      email,
+      name,
+      encryptedPassword,
+      masterPassword,
+      groupId
+    } as Account).subscribe(value => {});
   }
 
   popUp_Window_Show(){
