@@ -6,11 +6,13 @@ import {AccountDashboardComponent} from "../account/dashboard/account.dashboard.
 import { CreateComponent } from './create/create.component';
 import { HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { DeleteComponent } from './delete/delete.component';
 
 
 @NgModule({
   declarations: [
-    CreateComponent
+    CreateComponent,
+    DeleteComponent
   ],
   imports: [
     CommonModule,
