@@ -54,7 +54,7 @@ export class UpdateAccountComponent implements OnInit {
       let account = this.accountForm.value as Account;
       account.id = this.accountToUpdate.id;
       this._accountService.update(account).subscribe(account => {
-        this._router.navigateByUrl('/dashboard')
+        this.goBack()
       });
     }
   }
