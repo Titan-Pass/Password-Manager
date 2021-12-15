@@ -30,7 +30,6 @@
 </table>
 
 <!-- Pop Up Window if User Wants to Delete account -->
-<!-- TODO Show accounts email, website, and group in pop up TODO -->
 
 <div class="pop-up_background"  [style.display]="accountToDelete?'flex': 'none'" id="DeleteAccount_popUpWindow_Backround">
   <div class="pop-up_container">
@@ -69,7 +68,9 @@
   <div class="pop-up_container_confirm">
     <label class="pop-up_label_oneConfirm">Confirm with</label>
     <label class="pop-up_label_TwoConfirm">Login password.</label>
-    <input type="password" [(ngModel)]="loginPassword" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm">
+    <button (click)="showPassword()" class="showOreHidePassword" id="showAndHidePassword" [textContent]="passwordField?'Hide':'Show'"></button>
+
+    <input [type]="passwordField?'text':'password'" [(ngModel)]="loginPassword" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm">
     <div class="masterPassword_warning" id="masterPassword_warning">
       <div>
         Wrong password.

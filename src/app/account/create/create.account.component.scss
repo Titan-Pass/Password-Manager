@@ -60,7 +60,7 @@
 
   width: 60px;
   height: 20px;
-  background: #006400;
+  background: #A38D65;
   border-radius: 20px;
   align-self: center;
   margin-top: -20px;
@@ -114,6 +114,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+  position: relative;
 }
 
 .pop-up_background{
@@ -256,4 +257,14 @@
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+.showOreHidePassword{
+  width: 60-5px;
+  align-self: center;
+  margin-left: 80px;
+  margin-top: -20-5px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  color: #FFFFFF;
+  background: #C23838;
 }

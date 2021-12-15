@@ -11,7 +11,9 @@
   <input id="email" type="email" formControlName="email" class="BoxDesign">
 
   <label for="password" class="LabelDesign" >Password: </label>
-  <input id="password" type="password" formControlName="password" class="BoxDesign">
+  <button (click)="showPassword()" class="showOreHidePassword" id="showAndHidePassword" [textContent]="passwordField?'Hide':'Show'"></button>
+
+  <input id="password" [type]="passwordField?'text':'password'" formControlName="password" class="BoxDesign">
 
 
   <div *ngIf="password && password.invalid && (password.dirty || password.touched)"

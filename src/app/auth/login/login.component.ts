@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
       [Validators.required, Validators.minLength(3)]),
     password: new FormControl('', Validators.required),
   });
+  passwordField:any| undefined;
+  showOreHidePassword:any | undefined;
 
   constructor(private fb: FormBuilder,
               private _auth: AuthService,
@@ -48,5 +50,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showPassword():void{
+    if(!this.passwordField){
+      this.passwordField = 1;
+    }
+    else{
+      this.passwordField = undefined;
+    }
+  }
 
 }

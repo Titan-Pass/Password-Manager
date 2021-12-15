@@ -24,6 +24,9 @@ export class UpdateAccountComponent implements OnInit {
   $groups: Observable<GroupList> | undefined;
   public selectedGroup: number = 0;
   accountToUpdate: Account | undefined;
+  passwordField:any| undefined;
+  showOreHidePassword:any | undefined;
+  public password:string | undefined;
 
   constructor(private _activated: ActivatedRoute,
               private _accountService: AccountService,
@@ -61,5 +64,32 @@ export class UpdateAccountComponent implements OnInit {
 
   selectChangeHandler(event: any) {
     this.selectedGroup = event.target.value;
+  }
+  newGroup(){
+    this._router.navigateByUrl("groups/create")
+  }
+
+  generateRandomPassword(){
+    this.password='';
+    var chars = "1234567890qwertzuiopasdfghjklyxcvbnm" +
+      "QWERTZUIOPASDFGHJKLYXCVBNM!@$%&*()_+<>:{}[]";
+    var passwordLength =16;
+    for (var i=0; i< passwordLength; i++){
+      var randomNumber = Math.floor(Math.random()* chars.length);
+      this.password += chars.substring(randomNumber, randomNumber+1);
+    }
+    // @ts-ignore
+    document.getElementById("encryptedPassword").value = this.password
+  }
+
+
+
+  showPassword():void{
+    if(!this.passwordField){
+      this.passwordField = 1;
+    }
+    else{
+      this.passwordField = undefined;
+    }
   }
 }

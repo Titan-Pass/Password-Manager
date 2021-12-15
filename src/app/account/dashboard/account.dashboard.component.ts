@@ -17,6 +17,9 @@ export class AccountDashboardComponent implements OnInit {
   public password: string = '';
   public loginPassword: string = '';
   accountToDelete : Account | undefined;
+  passwordField:any| undefined;
+  showOreHidePassword:any | undefined;
+
 
   constructor(private _accountService: AccountService,
               private _router: Router) { }
@@ -103,5 +106,13 @@ export class AccountDashboardComponent implements OnInit {
     // @ts-ignore
     document.querySelector('.pop-up_password').style.display = 'flex';
     this.accountID =  +id.valueOf();
+  }
+  showPassword():void{
+    if(!this.passwordField){
+      this.passwordField = 1;
+    }
+    else{
+      this.passwordField = undefined;
+    }
   }
 }

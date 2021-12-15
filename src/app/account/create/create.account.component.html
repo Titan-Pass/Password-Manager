@@ -1,5 +1,4 @@
-<div class="WhiteContainer">
-
+<div class="WhiteContainer"  >
   <label for="group-select" class="LabelDesign">Group:</label>
   <button class="NewButton" (click)="newGroup()" >New</button>
  <select id="group-select" class="DropDownBox" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
@@ -14,9 +13,15 @@
   <input type="text" id="Email" #email name="Email" placeholder="Email" class="BoxDesign">
 
   <label for="encryptedPassword" class="LabelDesign">Password:</label>
-  <button class="GenerateButton" type="submit">Generate</button>
-  <input type="password" id="encryptedPassword" #encryptedPassword name="encryptedPassword" placeholder="**********" class="BoxDesign">
+  <button class="GenerateButton" type="submit" (click)="generateRandomPassword()">Generate</button>
 
+
+  <button (click)="showPassword()" class="showOreHidePassword" id="showAndHidePassword" [textContent]="passwordField?'Hide':'Show'"></button>
+  <input [type]="passwordField?'text':'password'" id="encryptedPassword" #encryptedPassword name="encryptedPassword" placeholder="**********" class="BoxDesign" >
+
+
+
+  <!---type="password"--->
   <button class="AddButton" type="submit" (click)="popUp_Window_Show()">Add</button>
   <button class="BackButton" (click)="goBack()">Back</button>
 
@@ -34,7 +39,7 @@
         Wrong password.
       </div>
     </div>
-    <button class="pop-up_button_confirm" id="popUpContinueButton_password" (click)="create(email.value, name.value, encryptedPassword.value, masterPassword.value, selectedGroup.valueOf())"> Confirm </button>
+    <button class="pop-up_button_confirm" id="popUpContinueButton_password" (click)="create(email.value, name.value,encryptedPassword.value, masterPassword.value, selectedGroup.valueOf())"> Confirm </button>
     <button class="pop-up_button_quit" id="popUpQuitButton_password" (click)="goBack()"> Quit </button>
   </div>
 </div>

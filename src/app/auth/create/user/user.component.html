@@ -10,9 +10,11 @@
   <label for="email" class="LabelDesign">Email:</label>
   <input type="email" id="email" name="email" #email class="BoxDesign">
   <label for="password" class="LabelDesign">Password:</label>
-  <input type="password" id="password" name="password" #plainTextPassword class="BoxDesign" (click)="HidePasswordWarning()">
+  <button (click)="showPassword()" class="showOreHidePassword" id="showAndHidePassword" [textContent]="passwordField?'Hide':'Show'"></button>
+  <button class="GenerateButton" type="submit" (click)="generateRandomPassword()">Generate</button>
+  <input [type]="passwordField?'text':'password'" id="password" name="password" #plainTextPassword class="BoxDesign" (click)="HidePasswordWarning()">
   <label for="repeatPassword" class="LabelDesign">Repeat Password:</label>
-  <input type="password" id="repeatPassword" name="repeatPassword" #plainTextRepeatPassword class="BoxDesign" (click)="HidePasswordWarning()">
+  <input [type]="passwordField?'text':'password'" id="repeatPassword" name="repeatPassword" #plainTextRepeatPassword class="BoxDesign" (click)="HidePasswordWarning()">
 
   <div class="PasswordWarning" id="PasswordWarningText">
     <div>

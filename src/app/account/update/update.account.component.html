@@ -1,7 +1,7 @@
 
 <form [formGroup]="accountForm" class="WhiteContainer" (ngSubmit)="update()">
   <label for="group-select" class="LabelDesign">Group:</label>
-  <button class="NewButton" type="submit">New</button>
+  <button class="NewButton" type="submit" (click)="newGroup()">New</button>
   <select id="group-select" class="DropDownBox" formControlName="groupId" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
     <option value="" selected hidden>Select</option>
     <option *ngFor="let group of groupsList.list" (select)="group.id" [value]="group.id" > {{group.name}} </option>
@@ -20,9 +20,12 @@
   <input type="password" id="masterPassword" #masterPassword formControlName="masterPassword" name="masterPassword" class="BoxDesign">
 
   <label for="encryptedPassword" class="LabelDesign">Password:</label>
-  <button class="GenerateButton" type="submit">Generate</button>
-  <input type="password" id="encryptedPassword" #encryptedPassword formControlName="encryptedPassword" name="encryptedPassword" class="BoxDesign">
+  <button class="GenerateButton" type="submit" (click)="generateRandomPassword()">Generate</button>
+  <button (click)="showPassword()" class="showOreHidePassword" id="showAndHidePassword" [textContent]="passwordField?'Hide':'Show'"></button>
+  <input [type]="passwordField?'text':'password'" id="encryptedPassword" #encryptedPassword formControlName="encryptedPassword" name="encryptedPassword" class="BoxDesign">
 
   <button class="AddButton" type="submit" [disabled]="!accountForm.valid">Update</button>
   <button class="BackButton" (click)="goBack()" type="button" >Back</button>
 </form>
+
+

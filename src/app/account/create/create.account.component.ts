@@ -17,6 +17,9 @@ import {LoginDto} from "../../auth/shared/login.dto";
 export class CreateAccountComponent implements OnInit {
   $groups: Observable<GroupList> | undefined;
   public selectedGroup: number = 0;
+  public password:string | undefined;
+  passwordField:any| undefined;
+  showOreHidePassword:any | undefined;
 
   constructor(private _accountService: AccountService,
               private _groupService: GroupService,
@@ -33,6 +36,7 @@ export class CreateAccountComponent implements OnInit {
   getGroups(): void {
     this.$groups = this._groupService.getGroups();
   }
+
 
   create(email: string, name: string, encryptedPassword: string, masterPassword: string, groupId: number, ): void {
     this._accountService.createAccount({
@@ -73,4 +77,28 @@ export class CreateAccountComponent implements OnInit {
   newGroup(){
     this._router.navigateByUrl("groups/create")
   }
+
+
+  generateRandomPassword(){
+    this.password='';
+    var chars = "1234567890qwertzuiopasdfghjklyxcvbnm" +
+                "QWERTZUIOPASDFGHJKLYXCVBNM!@$%&*()_+<>:{}[]";
+    var passwordLength =16;
+    for (var i=0; i< passwordLength; i++){
+      var randomNumber = Math.floor(Math.random()* chars.length);
+      this.password += chars.substring(randomNumber, randomNumber+1);
+    }
+    // @ts-ignore
+    document.getElementById("encryptedPassword").value = this.password
+  }
+
+  showPassword():void{
+    if(!this.passwordField){
+      this.passwordField = 1;
+    }
+    else{
+      this.passwordField = undefined;
+    }
+  }
+
 }
