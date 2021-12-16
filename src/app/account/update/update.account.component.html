@@ -16,16 +16,29 @@
   <label for="Email" class="LabelDesign">Email:</label>
   <input type="text" id="Email" #email name="Email" formControlName="email" class="BoxDesign">
 
-  <label for="masterPassword" class="LabelDesign"> Login password:</label>
-  <input type="password" id="masterPassword" #masterPassword formControlName="masterPassword" name="masterPassword" class="BoxDesign">
-
   <label for="encryptedPassword" class="LabelDesign">Password:</label>
   <button class="GenerateButton" type="submit" (click)="generateRandomPassword()">Generate</button>
   <button (click)="showPassword()" class="showOreHidePassword" id="showAndHidePassword" [textContent]="passwordField?'Hide':'Show'"></button>
   <input [type]="passwordField?'text':'password'" id="encryptedPassword" #encryptedPassword formControlName="encryptedPassword" name="encryptedPassword" class="BoxDesign">
 
-  <button class="AddButton" type="submit" [disabled]="!accountForm.valid">Update</button>
+  <button class="AddButton" type="submit" (click)="popUp_Window_Show()">Update</button>
   <button class="BackButton" (click)="goBack()" type="button" >Back</button>
 </form>
 
+
+<!-- pop-Up window which askes about the main password to confirm the update -->
+<div class="pop-up_background" id="popUpBackground_password">
+  <div class="pop-up_container_confirm">
+    <label class="pop-up_label_oneConfirm">Confirm with</label>
+    <label class="pop-up_label_TwoConfirm">Login password.</label>
+    <input type="password" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm" placeholder="**********" (click)="masterPasswordWarning_hide()">
+    <div class="masterPassword_warning" id="masterPassword_warning">
+      <div>
+        Wrong password.
+      </div>
+    </div>
+    <button class="pop-up_button_confirm" id="popUpContinueButton_password" [disabled]="!accountForm.valid"> Confirm </button>
+    <button class="pop-up_button_quit" id="popUpQuitButton_password" (click)="goBack()"> Quit </button>
+  </div>
+</div>
 

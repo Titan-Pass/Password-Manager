@@ -69,15 +69,13 @@
     <label class="pop-up_label_oneConfirm">Confirm with</label>
     <label class="pop-up_label_TwoConfirm">Login password.</label>
     <button (click)="showPassword()" class="showOreHidePassword" id="showAndHidePassword" [textContent]="passwordField?'Hide':'Show'"></button>
-
-    <input [type]="passwordField?'text':'password'" [(ngModel)]="loginPassword" id="masterPassword" #masterPassword name="masterPassword" class="BoxDesign_confirm">
+    <input [type]="passwordField?'text':'password'" [(ngModel)]="loginPassword" id="masterPassword" #masterPassword name="masterPassword" placeholder="*********" class="BoxDesign_confirm"  >
     <div class="masterPassword_warning" id="masterPassword_warning">
       <div>
         Wrong password.
       </div>
     </div>
     <button class="pop-up_button_confirm" id="popUpContinueButton_password" (click)="getPassword(accountID, masterPassword.value)"> Confirm </button>
-    <label class="pop-up_labelOne">{{password}}</label>
     <button class="pop-up_button_quit" id="popUpQuitButton_password" (click)="goBack()"> Back </button>
   </div>
 </div>

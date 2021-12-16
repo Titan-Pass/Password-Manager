@@ -82,7 +82,18 @@ export class UpdateAccountComponent implements OnInit {
     document.getElementById("encryptedPassword").value = this.password
   }
 
-
+  popUp_Window_Show(){
+    // @ts-ignore
+    document.querySelector('.pop-up_background').style.display = 'flex';
+  }
+  masterPasswordWarning_hide(){
+    // @ts-ignore
+    document.querySelector('.masterPassword_warning').style.display = 'none';
+    // @ts-ignore
+    document.querySelector('.pop-up_container_confirm').style.height = '260px';
+    // @ts-ignore
+    document.querySelector('.pop-up_button_confirm').style.marginTop = '30px';
+  }
 
   showPassword():void{
     if(!this.passwordField){

@@ -14,8 +14,8 @@ import {Password} from "../shared/password.model";
 export class AccountDashboardComponent implements OnInit {
   $accounts: Observable<AccountList> | undefined;
   public accountID: number = 0;
-  public password: string = '';
-  public loginPassword: string = '';
+  password: string |undefined;
+  public loginPassword: string |undefined;
   accountToDelete : Account | undefined;
   passwordField:any| undefined;
   showOreHidePassword:any | undefined;
@@ -32,11 +32,15 @@ export class AccountDashboardComponent implements OnInit {
     this.$accounts = this._accountService.getAccounts();
   }
 
+
   getPassword(id: number, password: string): void {
     id = this.accountID;
     this._accountService.getPassword({id, password} as Password).subscribe(value => {
-      this.password = value.password
-    });
+        this.password = value.password
+        this.passwordField = 1;
+        // @ts-ignore
+        document.getElementById("masterPassword").value = this.password;
+      });
   }
 
   updateAccount(id: number) {
@@ -65,6 +69,7 @@ export class AccountDashboardComponent implements OnInit {
     }
   }
 
+
   popupWindow_manageGroups_show(){
     // @ts-ignore
     document.querySelector('.groups_pop-up_background').style.display = 'flex';
@@ -88,6 +93,8 @@ export class AccountDashboardComponent implements OnInit {
     this.loginPassword = '';
     // @ts-ignore
     document.querySelector('.pop-up_password').style.display = 'none';
+    this.passwordField = undefined;
+    this.password = undefined;
   }
 
   newGroup(){
