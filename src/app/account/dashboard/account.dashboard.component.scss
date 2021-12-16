@@ -28,7 +28,7 @@
 }
 
 .ContainerMargin{
-  margin-left: 8.8%;
+  margin-left: 4.5%;
 }
 
 .ItemContainer{
@@ -51,6 +51,24 @@
   font-weight: bold;
   font-size: 20px;
 }
+.ItemBoxPassword{
+  width: 250px;
+  height: 35px;
+  background: #C4C4C4;
+
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+.ItemBoxPassword:hover span{
+  display: none;
+}
+.ItemBoxPassword:hover:before{
+  content: 'Show password';
+}
+
+
 
 .button_container{
   margin-top: 20px;

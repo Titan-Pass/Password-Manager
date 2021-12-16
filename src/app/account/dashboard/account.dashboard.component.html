@@ -14,10 +14,10 @@
     <td class="ItemBox" #group>{{account.group.name}}</td>
     <td class="ItemBox" #name>{{account.name}}</td>
     <td class="ItemBox" #email>{{account.email}}</td>
-    <td><td>
+    <td><button (click)="popUp_Window_Show(account.id)" class="ItemBoxPassword"  ><span>*********</span></button><td>
       <button (click)="updateAccount(account.id)" [value]="account.id">Update</button>
       <button (click)="popupWindow_deleteAccount_show(account)">X</button>
-      <button (click)="popUp_Window_Show(account.id)">Show password</button>
+
     </td>
   </tr>
 
