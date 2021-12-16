@@ -73,7 +73,7 @@
 .pop-up_container{
   flex-direction: column;
   width: 440px;
-  height: 380+5px;
+  height: 240px;
   background: #FFFFFF;
   border-radius: 20px;
   display: flex;
@@ -93,6 +93,7 @@
 }
 .pop-up_labelTwo{
   margin-top: 15px;
+  margin-bottom: 15px;
   font-family: Roboto, sans-serif;
   color: black;
   font-weight: bold;

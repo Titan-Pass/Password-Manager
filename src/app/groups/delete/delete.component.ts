@@ -24,7 +24,6 @@ export class DeleteComponent implements OnInit {
   }
   deleteGroup(groupId: number):void{
     if(groupId != 0){
-      this._groupService.delete(groupId).subscribe();
       this.showPopUpWindow()
     }
     else {
@@ -45,9 +44,13 @@ export class DeleteComponent implements OnInit {
     // @ts-ignore
     document.querySelector('.pop-up_background').style.display = 'flex';
   }
-  continue(){
+
+  continue(groupId: number):void{
+    this._groupService.delete(groupId).subscribe();
     this._router.navigateByUrl('accounts/dashboard');
   }
+
+
   noGroupSelected_Warning_show(){
     // @ts-ignore
     document.querySelector('.noGroupSelected_Warning').style.display = 'flex';

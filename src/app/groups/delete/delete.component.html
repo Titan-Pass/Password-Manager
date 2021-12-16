@@ -1,4 +1,4 @@
-<div class="WhiteContainer">
+<div class="WhiteContainer" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <label for="group-select" class="LabelDesign">Group to Delete:</label>
   <select id="group-select" class="DropDownBox" (click)="noGroupSelected_Warning_hide()" (change)="selectChangeHandler($event)" *ngIf="$groups | async as groupsList">
     <option value="" selected hidden >Select group</option>
@@ -10,15 +10,16 @@
       No group Selected
     </div>
   </div>
-
   <button class="pop-up_button_confirm" id="popUpContinueButton_password" (click)="deleteGroup(selectedGroup.valueOf())"> Delete </button>
   <button class="pop-up_button_back" id="popUpQuitButton_password" (click)="goBack()"> Back </button>
 </div>
 
 <div class="pop-up_background" id="popUpBackground">
   <div class="pop-up_container">
-    <label class="pop-up_labelOne">The Group</label>
-    <label class="pop-up_labelTwo">has been deleted.</label>
-    <button class="pop-up_button" id="popUpContinueButton" (click)="continue()"> Continue. </button>
+    <label class="pop-up_labelOne">Are you sure, that youu want to</label>
+    <label class="pop-up_labelTwo">delete this group ?</label>
+    <label>All accounts Using this group, will be removed !</label>
+    <button class="pop-up_button" id="popUpContinueButton" (click)="continue(selectedGroup.valueOf())"> Continue. </button>
+    <button class="pop-up_button_back" (click)="goBack()"> Back </button>
   </div>
 </div>
