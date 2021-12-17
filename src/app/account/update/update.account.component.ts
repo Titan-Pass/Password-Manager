@@ -16,8 +16,8 @@ export class UpdateAccountComponent implements OnInit {
   accountForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    masterPassword: new FormControl('', Validators.required),
     encryptedPassword: new FormControl('', Validators.required),
+    masterPassword: new FormControl('', Validators.required),
     groupId: new FormControl('', Validators.required)
   })
 
